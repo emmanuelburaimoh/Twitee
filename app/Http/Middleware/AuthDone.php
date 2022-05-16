@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AlreadyLoggedIn
+class AuthDone
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class AlreadyLoggedIn
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Session()->has('loginId')){
-            return redirect('/home')->with('failed', 'Already logged in');
+        if(auth()->check()){
+            return response()->json(["error"=>'Already logged in', 401]);
         }
         return $next($request);
     }

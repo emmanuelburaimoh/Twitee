@@ -14,10 +14,6 @@
                 <div class="col-md-4 col-md-offset-5">
                     <h1>Welcome</h1>
                     <p><b>TWITEE</b> is platform where anyone can put up anything that crosses their mind. Kinda like the baby brother of twitter</p>
-                    <br>
-                    <div class="form-group">
-                        <button class="btn btn-block btn-primary" onclick="window.location.href='/home';" >Continue</button>
-                    </div>
                 </div>
             </div>
         </div>

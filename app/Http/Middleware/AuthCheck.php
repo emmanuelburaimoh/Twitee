@@ -16,8 +16,8 @@ class AuthCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Session()->has('loginId')){
-            return redirect('/login')->with('failed', 'Please login');
+       if(!auth()->check()){
+            return response()->json(["error"=>'Please login', 401]);
         }
         return $next($request);
     }

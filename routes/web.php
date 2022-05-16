@@ -16,10 +16,3 @@ use App\Http\Controllers\MainController;
 */
 
 Route::get('/', [MainController::class, 'welcome']);
-Route::get('/home', [MainController::class, 'home'])->middleware('isLoggedIn');
-Route::get('/login', [AuthController::class, 'login'])->middleware('alreadyLoggedIn');
-Route::get('/registration', [AuthController::class, 'registration']);
-Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
-Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-user');
-Route::get('/logout', [AuthController::class, 'logout']);
-Route::post('/twit', [MainController::class, 'twit'])->name('twit');
