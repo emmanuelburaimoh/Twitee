@@ -41,9 +41,26 @@ class MainController extends Controller
         $twit->body = $request->body;
         $twit->twit_id = $request->twit_id;
         $res = $twit->save();
-        
+
         return response()->json([
             'message'=>'Twited successfully',
+            'twit'=>$twit
+        ], 201);
+    }
+
+    public function twits(Request $request){
+        $twit = Twit::where('user_id', auth()->user()->id)->get();
+        return response()->json([
+            'message'=>'Twited retrieved successfully',
+            'twit'=>$twit
+        ], 201);
+    }
+
+    public function twitDelete($id){
+        $match = ['id'=>$id, 'user_id'=>auth()->user()->id];
+        $twit = Twit::where($match)->delete();
+        return response()->json([
+            'message'=>'Twited deleted successfully',
             'twit'=>$twit
         ], 201);
     }

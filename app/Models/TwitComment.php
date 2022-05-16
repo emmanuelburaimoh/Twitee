@@ -9,6 +9,6 @@ class TwitComment extends Model
 {
     public function twit()
     {
-        return $this->belongsTo(Twit::class, 'foreign_key');
+        return $this->belongsTo(Twit::class);
     }
 }

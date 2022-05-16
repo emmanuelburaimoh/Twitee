@@ -27,5 +27,6 @@ Route::group(['middleware'=>'api','prefix'=>'auth'], function($router) {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/twit', [MainController::class, 'twit'])->middleware('authCheck');
     Route::post('/twit-comment', [MainController::class, 'twitComment'])->middleware('authCheck');
-    Route::get('/home', [MainController::class, 'home'])->middleware('authCheck');
+    Route::get('/twits', [MainController::class, 'twits'])->middleware('authCheck');
+    Route::delete('/twit-delete/{id}', [MainController::class, 'twitDelete'])->middleware('authCheck');
 });
